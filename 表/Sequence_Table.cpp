@@ -1,8 +1,3 @@
-/*
-	Created By ShawFrank
-	language: C plus plus
-	2020.12.20
-*/
 #include <iostream>
 #define MaxSize 50	//最大容量 
 #define ElemType int
@@ -55,7 +50,7 @@ int LocateElem(SqList L, ElemType e)	//按值查找
 		if(L.data[i] == e)
 			return i + 1;	//下标为i的元素值为e, 返回其位置 i + 1 
 	
-	return 0; 	//查找失败 
+	return -1; 	//查找失败 
 }
 
 int LocatePosition(SqList L, int i)		//按位置查找
@@ -64,7 +59,7 @@ int LocatePosition(SqList L, int i)		//按位置查找
 		if(j == i - 1)	
 			return L.data[j];	//查找成功返回值 
 	
-	return 0;	//查找失败 
+	return -1;	//查找失败 
 } 
 void Traverse(SqList &L)	//遍历 
 {
