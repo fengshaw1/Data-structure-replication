@@ -1,3 +1,10 @@
+/*
+	Created by ShawFrank
+	lanuage: C plus plus
+	2020/12/27 
+*/ 
+// 冒泡排序:   
+// 时间复杂度   最好:O(N)  最坏:O(N^2) 
 #include <iostream>
 #include <algorithm>
 #define ElemType int
