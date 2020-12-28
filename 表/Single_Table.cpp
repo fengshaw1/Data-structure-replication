@@ -102,7 +102,6 @@ void DeleteNode(LinkList &L, int i)	//删除第i个节点后面的节点
 	free(s);
 }
 
-
 void Traverse(LinkList L)	//遍历函数 
 {
 	LNode *p;
