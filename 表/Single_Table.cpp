@@ -104,7 +104,9 @@ void DeleteNode(LinkList &L, int i)	//删除第i个节点后面的节点
 
 void Traverse(LinkList L)	//遍历函数 
 {
-	LNode *p;
+	LNode *p, *head;
+	head = L;
+	p = head->next;
 	while(p)
 	{
 		cout << p->data << "-->";
@@ -112,15 +114,35 @@ void Traverse(LinkList L)	//遍历函数
 	}
 	puts("\n");
 }
+
+LNode * Inverse(LNode *L)	//链表逆置 
+{
+	LNode *p, *q;
+	p = L->next;
+	L->next = NULL;
+	while (p != NULL)
+	{
+		q = p;
+		p = p->next;
+ 
+		q->next = L->next;
+		L->next = q;
+	}
+	return L;
+}
+
 int main()
 {
 	LinkList L;
 	LNode *p;
-	L = List_HeadInsertInit(L);
+	L = List_TailInsertInit(L);
 	/*插入和删除时都要对头部和尾部元素进行特殊处理*/ 
-	//InsertNodeByPosition(L, 2 , 2);		//在第2个节点的后面插入节点值为: 2
-	//DeleteNode(L,2);	//删除第 2 个节点 	 
+	//InsertNodeByPosition(L, 1 , 2);		//在第一个位置插入节点2 
 	Traverse(L);
-	cout << getLinkListLength(L) << endl;
+	L = Inverse(L);
+	Traverse(L);
+//	DeleteNode(L,2);	//删除第 2 个节点 	 
+//	Traverse(L);
+	//cout << getLinkListLength(L) << endl;
 	return 0;	
 } 
