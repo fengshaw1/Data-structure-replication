@@ -21,6 +21,11 @@ bool isEmpty(SqQueue &Q)	//判断队列是否为空
 	else return false; 
 }
 
+bool isFull(SqQueue &Q) 	//判断队列是否满了 
+{	
+	if((Q.rear + 1) % m == Q.front) return true;	//队满条件 
+	else return false;
+}
 bool EnQueue(SqQueue &Q, ElemType x)	//入队 
 {
 	if((Q.rear + 1) % MaxSize == Q.front) return false;	//队满，无法插入
