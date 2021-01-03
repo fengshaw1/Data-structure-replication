@@ -68,6 +68,17 @@ void Traverse(SqList &L)	//遍历
 	cout << endl; 
 }
 
+void Reverse(SqList &L)		// 逆置 
+{
+	ElemType temp;//临时空间
+	for (int i = 0; i < L.length/2; i++)
+	{
+		temp = L.data[i];
+		L.data[i] = L.data[L.length - i - 1];
+		L.data[L.length - i - 1] = temp;
+	}
+}
+
 bool isEmpty(SqList &L)		//判断表是否为空 
 {
 	if(L.length == 0)
@@ -82,12 +93,16 @@ int main()
 	L = InitList();
 	
 	ListInsert(L, 1, 1); 	// 1 号位置插入值为 1 
-	ListInsert(L, 1, 2); 
+	ListInsert(L, 2, 2); 
+	ListInsert(L, 3, 3); 
+	ListInsert(L, 4, 4); 
 	Traverse(L);
-	ListDelete(L, 1, deleteItem);
+	Reverse(L); 
+	Traverse(L);
+/*	ListDelete(L, 1, deleteItem);
 	Traverse(L);
 	printf("被删除的元素是:%d\n", deleteItem);
 	findItem = LocatePosition(L, 1);
-	printf("查找到的元素是:%d\n", findItem);
+	printf("查找到的元素是:%d\n", findItem);*/ 
 	return 0;
 } 
